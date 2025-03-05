@@ -1,0 +1,73 @@
+body{
+    margin: 15px;
+    padding: 15px;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+#content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card{
+    width: 250px;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #DDD;
+    box-shadow: 4px 5px 6px rgba(0, 0, 0, 0.5);
+}
+
+.card img{
+    height: 200px;
+    align-self: center;
+    filter:drop-shadow(1px 1px 10px yellow);
+    
+}
+
+.card p, .card h2, .card h3{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.title{
+    color:#f0a7a7;
+    background-color: #666;
+    border-radius: 5px;
+}
+
+.send-btn{
+    box-shadow: 4px 5px 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    border: none;
+    height: 30px;
+    width: 120px;
+    background-color: aquamarine;
+    font-family:'Lucida Sans', Verdana, sans-serif;
+    border-radius: 8px;
+    transition: all .3s ease;
+}
+
+.send-btn:hover{
+    background-color: #6cd7b3;
+}
+
+#amount{
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px;
+    width: 60px;
+}
