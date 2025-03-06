@@ -19,7 +19,6 @@ header{
 .card{
     width: 250px;
     height: 450px;
-    overflow: hidden;
     border-radius: 15px;
     padding: 15px;
     display: flex;
@@ -31,9 +30,13 @@ header{
 
 .card img{
     height: 200px;
-    align-self: center;
-    filter:drop-shadow(1px 1px 10px yellow);
-    
+    align-self: center;    
+    transition: all .3s ease-in-out;
+}
+
+.card:hover img{
+        filter:drop-shadow(1px 1px 10px yellow);
+        scale: 1.2;
 }
 
 .card p, .card h2, .card h3{
