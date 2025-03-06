@@ -1,30 +1,37 @@
 let btn = document.getElementById("send-btn");
 let content = document.getElementById("content");
-btn.addEventListener("click", getCharacters);
 let amountInput = document.getElementById("amount");
+btn.addEventListener("click", getCharacters);
 
+// Se añade clase send-btn al botón
+btn.classList.add("send-btn");
 
 async function getCharacters() {
+    let amountValue = amountInput.value;
+    if (!amountValue) {
+        alert('No se ingresó ninguna cantidad');
+        amountInput.value = 1;
+        return;
+    }
+    const BASE_URL = `https://dragonball-api.com/api/characters?limit=${amountValue}`;
     try {
-        let amountValue = amountInput.value;
-        const BASE_URL = `https://dragonball-api.com/api/characters?limit=${amountValue}`;
         let response = await fetch(BASE_URL);
         let characters = await response.json();
         /* console.log(characters); */
-        createInDOM(characters.items);
+        createInDOM(characters.items); //pasamos el arreglo de items que viene en el json
     } catch (error) {
         console.log(`Error: ${error}`)
     }
 }
 
 function createInDOM(characters) {
-    content.innerHTML='';
+    content.innerHTML = '';
     characters.forEach(elem => {
         addElement(elem);
     });
 }
 
-function addElement(elem){
+function addElement(elem) {
     let div = document.createElement('div');
     let img = document.createElement('img');
     let name = document.createElement('h2');
@@ -48,14 +55,16 @@ function addElement(elem){
     affiliation_text.innerHTML = elem.affiliation;
 
     //Titulos de los H3
-    race.innerHTML='Raza';
-    gender.innerHTML='Género';
-    ki.innerHTML='Ki Base';
-    maxKi.innerHTML='Ki Total';
-    affiliation.innerHTML='Afiliación';
+    race.innerHTML = 'Raza';
+    gender.innerHTML = 'Género';
+    ki.innerHTML = 'Ki Base';
+    maxKi.innerHTML = 'Ki Total';
+    affiliation.innerHTML = 'Afiliación';
 
     // Imagen
     img.src = elem.image;
+    img.alt = elem.description;
+    img.title = elem.description;
 
     // Metemos todos los elementos dentro del div
     div.appendChild(img);
@@ -71,10 +80,10 @@ function addElement(elem){
     div.appendChild(affiliation);
     div.appendChild(affiliation_text);
 
-    // Metemos el div al DOM
+    //Agregamos clases de estilos
     div.classList.add('card');
     name.classList.add('title');
+
+    // Metemos el div al DOM
     content.appendChild(div);
 }
-
-btn.classList.add("send-btn");
