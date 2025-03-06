@@ -1,5 +1,5 @@
 let btn = document.getElementById("send-btn");
-let content = document.getElementById("content");
+let content = document.querySelector("main");
 let amountInput = document.getElementById("amount");
 btn.addEventListener("click", getCharacters);
 
@@ -32,7 +32,7 @@ function createInDOM(characters) {
 }
 
 function addElement(elem) {
-    let div = document.createElement('div');
+    let article = document.createElement('article');
     let img = document.createElement('img');
     let name = document.createElement('h2');
     let race = document.createElement('h3');
@@ -67,23 +67,23 @@ function addElement(elem) {
     img.title = elem.description;
 
     // Metemos todos los elementos dentro del div
-    div.appendChild(img);
-    div.appendChild(name);
-    div.appendChild(race);
-    div.appendChild(race_text);
-    div.appendChild(gender);
-    div.appendChild(gender_text);
-    div.appendChild(ki);
-    div.appendChild(ki_text);
-    div.appendChild(maxKi);
-    div.appendChild(maxKi_text);
-    div.appendChild(affiliation);
-    div.appendChild(affiliation_text);
+    article.appendChild(img);
+    article.appendChild(name);
+    article.appendChild(race);
+    article.appendChild(race_text);
+    article.appendChild(gender);
+    article.appendChild(gender_text);
+    article.appendChild(ki);
+    article.appendChild(ki_text);
+    article.appendChild(maxKi);
+    article.appendChild(maxKi_text);
+    article.appendChild(affiliation);
+    article.appendChild(affiliation_text);
 
     //Agregamos clases de estilos
-    div.classList.add('card');
+    article.classList.add('card');
     name.classList.add('title');
 
     // Metemos el div al DOM
-    content.appendChild(div);
+    content.appendChild(article);
 }
